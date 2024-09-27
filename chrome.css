@@ -1,0 +1,40 @@
+/* Toolbox is expanded */
+#navigator-toolbox:is(#navigator-toolbox[zen-user-hover='true'][zen-has-hover],
+#navigator-toolbox[zen-user-hover='true']:focus-within,
+#navigator-toolbox[zen-user-hover='true'][movingtab],
+#navigator-toolbox[zen-user-hover='true'][flash-popup],
+#navigator-toolbox[zen-user-hover='true'][has-popup-menu],
+#navigator-toolbox[zen-user-hover='true']:has(*[open='true']:not(tab):not(#zen-sidepanel-button)),
+#navigator-toolbox[zen-expanded='true']:not([zen-user-hover='true'])) {
+
+	/* Target the toolbar bottom buttons */
+  #zen-sidebar-icons-wrapper {
+    flex-direction: column !important; /* Arrange buttons vertically */
+    
+    /* Display the button text */
+    .toolbarbutton-text {
+      display: block;
+      text-align: left;
+    }
+    
+    /* Expand the button size to match the tab buttons */
+    toolbarbutton {
+      width: 100%;
+      flex-grow: 1;
+      height: var(--tab-min-height);
+      padding: var(--toolbarbutton-inner-padding) !important;
+    }
+    
+    /* Hide the original mouse hover highlight */
+    .toolbarbutton-icon,
+    .toolbarbutton-text {
+      background: none !important;
+    }
+    
+    /* Create a new mouse hover highlight over the full button*/
+    toolbarbutton:hover {
+      background: var(--toolbarbutton-hover-background) !important;
+      border-radius: var(--border-radius-medium) !important;
+    }
+  }
+}
